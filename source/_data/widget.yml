@@ -1,0 +1,74 @@
+# top: 创建的 widget 会出现在非 sticky 区域（即所有页面都会显示)
+# bottom: 创建的 widget 会出现在 sticky 区域（除了文章页都会显示)
+top:
+  - class_name:
+    id_name: newYear
+    name:
+    icon:
+    order: 1
+    html: '<div id="newYear-main"><div class="mask"></div>
+      <p class="title"></p>
+      <div class="newYear-time"></div>
+      <p class="today" style="text-align: right;"></p>
+      </div>'
+  - class_name: card-times
+    id_name: card-widget-calendar
+    name:
+    icon:
+    html:
+      <div id="calendar-area-left">
+        <div id="calendar-week"></div>
+        <div id="calendar-date"></div>
+        <div id="calendar-solar"></div>
+        <div id="calendar-lunar"></div>
+      </div>
+      <div id="calendar-area-right">
+        <div id="calendar-main">
+          <div class="calendar-rh">
+            <div class="calendar-d0"><a>日</a></div>
+            <div class="calendar-d1"><a>一</a></div>
+            <div class="calendar-d2"><a>二</a></div>
+            <div class="calendar-d3"><a>三</a></div>
+            <div class="calendar-d4"><a>四</a></div>
+            <div class="calendar-d5"><a>五</a></div>
+            <div class="calendar-d6"><a>六</a></div>
+          </div>
+        </div>
+      </div>
+
+  - class_name: card-times
+    id_name: card-widget-schedule
+    name:
+    icon:
+    html:
+      <div id="schedule-area-left">
+        <div id="schedule-title">距离决赛</div>
+        <div id="schedule-days">000</div>
+        <div id="schedule-date">2024-12-20</div>
+      </div>
+      <div id="schedule-area-right">
+        <div class="schedule-r0">
+          <div class="schedule-d0">本年</div>
+          <div class="schedule-d1">
+            <span id="p_span_year" class="aside-span1"></span>
+            <span class="aside-span2"></span>
+            <progress max="365" value="54" id="pBar_year"></progress>
+          </div>
+        </div>
+        <div class="schedule-r1">
+          <div class="schedule-d0">本月</div>
+          <div class="schedule-d1">
+            <span id="p_span_month" class="aside-span1"></span>
+            <span class="aside-span2"></span>
+            <progress max="30" value="17" id="pBar_month"></progress>
+          </div>
+        </div>
+        <div class="schedule-r2">
+          <div class="schedule-d0">本周</div>
+          <div class="schedule-d1">
+            <span id="p_span_week" class="aside-span1"></span>
+            <span class="aside-span2"></span>
+            <progress max="7" value="1" id="pBar_week"></progress>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,35 @@
+- class_name: 本站图片
+  path_name: /bztp
+  type: 2
+  description: 本站用到的各类图片。
+  cover: https://img.siyouyun.eu.org/file/1729829110001_IMG_0101.jpeg
+  top_background: https://img.siyouyun.eu.org/file/1729829138382_IMG_0105.png
+  rowHeight: 220
+  limit: 10
+  lazyload: true
+  btnLazyload: false
+  url: false
+  top_link: /album
+  top_btn_text: 返回
+  album_list:
+    - date: 2022/10/26 01:00:00
+      content: 二次元。
+      address: 二次元
+      from: 美女
+      image:
+        - https://img.siyouyun.eu.org/file/1729829154238_IMG_0104.png
+
+
+- class_name: 二次元
+  path_name: /erciyuan
+  type: 1
+  description: 这里存放的是二次元。
+  top_link: /album
+  top_btn_text: 返回
+  top_background: https://img.siyouyun.eu.org/file/1729829154238_IMG_0104.png
+  cover: https://img.siyouyun.eu.org/file/1729829152696_IMG_0103.png
+  album_list:
+    - date: 2022-10-24
+      content: 二次元
+      image:
+        - https://img.siyouyun.eu.org/file/1729829152696_IMG_0103.png

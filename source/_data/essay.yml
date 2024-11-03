@@ -1,0 +1,20 @@
+- title: 即刻短文
+  subTitle: 咸鱼的日常生活。
+  tips: 随时随地，分享生活
+  buttonText: 关于我
+  buttonLink: /about/
+  limit: 30
+  home_essay: true
+  top_background: https://img.siyouyun.eu.org/file/1728572329943_index.jpg
+  essay_list:
+    - content: 安知鱼主题指南
+      date: 2023/09/09
+      video:
+        - https://player.bilibili.com/player.html?aid=226886152&bvid=BV1Ch41137tR&cid=1081639816&p=1&autoplay=0
+    - content: 终于又一次搭建成功了
+      date: 2024/10/02
+      link: https://blog.lxb.icu
+      image:
+        - https://img.siyouyun.eu.org/file/1728549912735_459a11837258ab90b88153292152ecc.jpg
+      address: 上海
+      from: 李小白

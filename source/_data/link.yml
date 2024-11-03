@@ -1,0 +1,78 @@
+- class_name: 框架
+  flink_style: flexcard
+  hundredSuffix: ""
+  link_list:
+    - name: 李小白
+      link: https://lxb.icu
+      avatar: https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640
+      descr: 个人博客
+      siteshot: https://img.siyouyun.eu.org/file/1728793454327_image.png
+    - name: anzhiyu主题
+      link: https://blog.anheyu.com/
+      avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+      descr: 生活明朗，万物可爱
+      siteshot: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.6/img/blog.anheyu.com.jpg
+
+- class_name: 推荐博客
+  flink_style: telescopic
+  hundredSuffix: ""
+  link_list:
+    - name: 李小白
+      link: https://lxb.icu
+      avatar: https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640
+      descr: 与风共舞，随心而行.
+      siteshot: https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640
+      color: vip
+      tag: 技术
+
+- class_name: 个人站
+  class_desc: 哪些年，建的站。
+  flink_style: anzhiyu
+  hundredSuffix: ""
+  link_list:
+    - name: 李小白网盘
+      link: https://wp.lxb.icu/
+      avatar: https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640
+      descr: 网盘
+      recommend: true
+    - name: 李小白短剧
+      link: https://video.lxb.icu/
+      avatar: https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640
+      descr: 短剧
+      recommend: true
+    - name: 李小白监控
+      link: https://status.lxb.icu/
+      avatar: https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640
+      descr: 监控
+      recommend: true
+
+- class_name: 小伙伴
+  class_desc: 那些人，那些事
+  flink_style: anzhiyu
+  hundredSuffix: ""
+  link_list:
+    - name: 安知鱼
+      link: https://blog.anheyu.com/
+      avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+      descr: 生活明朗，万物可爱
+      recommend: true
+    - name: 一粒微尘
+      link: https://blog.667408.xyz
+      avatar: https://blog.667408.xyz/favicon.ico
+      descr: 撷光以望，纳星于瞳
+    - name: 东方月初
+      link: https://hexo.200038.xyz/
+      avatar: https://hexo.200038.xyz/img/favicon.ico
+      descr: 东方月初
+    - name: 梦爱吃鱼
+      link: https://blog.bsgun.cn/
+      avatar: https://lib.bsgun.cn/Hexo-static/img/favicon.ico
+      descr: 梦爱吃鱼
+    - name: eurkon
+      link: https://blog.eurkon.com/
+      avatar: https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/avatar.jpg
+      descr: eurkon
+    - name: Fomalhaut🥝
+      link: https://www.fomal.cc/
+      avatar: https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/avatar.jpg
+      descr: Fomalhaut🥝
