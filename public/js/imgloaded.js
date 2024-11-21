@@ -79,7 +79,7 @@
   
   const config = {
     smallSrc: '/img/xiaotu.jpg', // 小图链接 尽可能配置小于100k的图片
-    largeSrc: '/img/tu.png', // 大图链接 最终显示的图片
+    largeSrc: '/img/p0.png', // 大图链接 最终显示的图片
     mobileSmallSrc: '/img/02.png', // 手机端小图链接 尽可能配置小于100k的图片
     mobileLargeSrc: '/img/03.png', // 手机端大图链接 最终显示的图片
     enableRoutes: ['/'],

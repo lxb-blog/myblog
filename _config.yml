@@ -29,6 +29,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+    - pages/**
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -61,7 +62,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 12
   order_by: -date
 
 # Category & Tag
@@ -194,8 +195,7 @@ encrypt: # hexo-blog-encrypt
   wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
   wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 
-
-
+#懒加载
 lazyload:
   enable: true  # 是否开启图片懒加载
   onlypost: true  # 是否只对文章的图片做懒加载

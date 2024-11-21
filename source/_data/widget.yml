@@ -1,6 +1,22 @@
 # top: 创建的 widget 会出现在非 sticky 区域（即所有页面都会显示)
 # bottom: 创建的 widget 会出现在 sticky 区域（除了文章页都会显示)
 top:
+  - class_name: game-card-widget
+    id_name: game-card-widget
+    name: 游戏卡片
+    icon: fas fa-gamepad  # 你可以根据需要添加图标
+    order: 1
+    html: |
+      <div id="game-card-widget">
+        <img width="400" height="140" src="https://card.yuy1n.io/card/76561198399386823/gradient2,badge,bg-game-958260,badges,games,artworks">
+      </div>
+bottom:      
+  - class_name: card-music
+    id_name: card-widget-netease
+    name: 最近播放
+    icon: fas fa-headphones
+    order: 2
+    html: '<img src="https://music.siyouyun.eu.org/?id=1939753826&theme=card&show_rainbow=1&size=300" alt="Netease recently played" width="300" />'
   - class_name:
     id_name: newYear
     name:
@@ -44,7 +60,7 @@ top:
       <div id="schedule-area-left">
         <div id="schedule-title">距离决赛</div>
         <div id="schedule-days">000</div>
-        <div id="schedule-date">2024-12-20</div>
+        <div id="schedule-date">2024-12-31</div>
       </div>
       <div id="schedule-area-right">
         <div class="schedule-r0">
