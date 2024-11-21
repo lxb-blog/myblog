@@ -56,7 +56,7 @@ jobs:
       with:  
         personal_token: ${{ secrets.PAT }}  
         publish_dir: ./public  
-        external_repository: catxian/blog-anzhiyu-Public  
+        external_repository: lxb-blog/lxb-blog.github.io
         user_name: "github-actions[bot]"  
         user_email: "github-actions[bot]@users.noreply.github.com"  
         full_commit_message: "通过 Github Actions 部署 Hexo 构建"  
