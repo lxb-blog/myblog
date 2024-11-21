@@ -49,6 +49,7 @@ jobs:
     - name: 生成静态  
       run: |  
         hexo bangumi -u
+        hexo cl 
         hexo generate  
   
     - name: 部署推送到目标仓库  
