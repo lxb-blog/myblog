@@ -1,64 +1,57 @@
-name: 自动构建  
-  
-on:  
-  push:  
-    branches:  
-      - main  
-  
-jobs:  
-  deploy:  
-    runs-on: ubuntu-latest  
-    env:  
-      TZ: Asia/Shanghai  
-    steps:  
-    - name: 检查源仓库分支  
-      uses: actions/checkout@v3  
-      with:  
-        ref: main  
-        fetch-depth: 0  
-  
-    - name: 恢复文件修改时间  
-      run: |  
-        find source -name '*.md' | while read file; do  
-          touch -d "$(git log -1 --format="@%ct" "$file")" "$file"  
-        done  
-  
-    - name: 安装 Node.js  
-      uses: actions/setup-node@v3  
-      with:  
-        node-version: "20.x"  
-  
-    - name: 安装 Hexo  
-      run: |  
-        npm install -g hexo-cli  
-  
-    - name: 缓存 node 模块  
-      id: cache-node-modules  
-      uses: actions/cache@v3  
-      with:  
-        path: node_modules  
-        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  
-        restore-keys: |  
-          ${{ runner.os }}-node-modules-  
-  
-    - name: 安装依赖  
-      if: steps.cache-node-modules.outputs.cache-hit != 'true'  
-      run: |  
-        npm install --save  
-  
-    - name: 生成静态  
-      run: |  
-        hexo bangumi -u
-        hexo cl
-        hexo generate  
-  
-    - name: 部署推送到目标仓库  
-      uses: peaceiris/actions-gh-pages@v3  
-      with:  
-        personal_token: ${{ secrets.PAT }}  
-        publish_dir: ./public  
-        external_repository: lxb-blog/lxb-blog.github.io
-        user_name: "github-actions[bot]"  
-        user_email: "github-actions[bot]@users.noreply.github.com"  
-        full_commit_message: "通过 Github Actions 部署 Hexo 构建"  
-        publish_branch: main
+name: 自动构建和部署 Hexo 网站
+
+on:
+  push:
+    branches:
+      - main  # 触发部署的分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境
+
+    env:
+      TZ: Asia/Shanghai  # 设置时区
+
+    steps:
+    - name: 检查出代码仓库
+      uses: actions/checkout@v3
+      with:
+        ref: main  # 确保是从 main 分支获取代码
+
+    - name: Clone anzhiyu theme
+      run: git clone -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu
+
+    - name: 安装 Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: "20.x"  # 安装 Node.js 20.x
+
+    - name: 安装 Hexo 和依赖
+      run: |
+        npm install -g hexo-cli  # 全局安装 hexo-cli
+        npm install  # 安装项目依赖
+
+    - name: 缓存 node_modules
+      id: cache-node-modules
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
+
+    - name: 生成静态文件
+      run: |
+        hexo clean  # 清除旧的生成文件
+        hexo generate  # 生成静态文件
+
+    - name: 部署到 GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.PAT }}  # 使用 GitHub Personal Access Token（确保已经在 Secrets 中配置）
+        publish_dir: ./public  # 发布目录
+        external_repository: ${{ github.repository }}  # 使用当前仓库作为目标
+        user_name: "github-actions[bot]"  # 提交用户
+        user_email: "github-actions[bot]@users.noreply.github.com"  # 提交邮件
+        full_commit_message: "通过 GitHub Actions 部署 Hexo 构建"  # 提交信息
+        publish_branch: gh-pages  # 部署到 gh-pages 分支
