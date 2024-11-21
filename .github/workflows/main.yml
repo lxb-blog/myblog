@@ -50,7 +50,7 @@ jobs:
       with:
         personal_token: ${{ secrets.PAT }}  # 使用 GitHub Personal Access Token（确保已经在 Secrets 中配置）
         publish_dir: ./public  # 发布目录
-        external_repository: ${{ github.repository }}  # 使用当前仓库作为目标
+        external_repository: lxb-blog/lxb-blog.github.io  # 修改为目标仓库
         user_name: "github-actions[bot]"  # 提交用户
         user_email: "github-actions[bot]@users.noreply.github.com"  # 提交邮件
         full_commit_message: "通过 GitHub Actions 部署 Hexo 构建"  # 提交信息
