@@ -49,7 +49,9 @@ jobs:
     - name: 生成静态
       run: |
         hexo generate
-
+    - name: 列出 public 目录内容
+      run: ls -alh ./public
+      
     - name: 部署推送到目标仓库
       uses: peaceiris/actions-gh-pages@v3
       with:
