@@ -1,63 +1,63 @@
-name: 自动构建  
-  
-on:  
-  push:  
-    branches:  
-      - main  
-  
-jobs:  
-  deploy:  
-    runs-on: ubuntu-latest  
-    env:  
-      TZ: Asia/Shanghai  
-    steps:  
-    - name: 检查源仓库分支  
-      uses: actions/checkout@v3  
-      with:  
-        ref: main  
-        fetch-depth: 0  
-  
-    - name: 恢复文件修改时间  
-      run: |  
-        find source -name '*.md' | while read file; do  
-          touch -d "$(git log -1 --format="@%ct" "$file")" "$file"  
-        done  
-  
-    - name: 安装 Node.js  
-      uses: actions/setup-node@v3  
-      with:  
-        node-version: "20.x"  
-  
-    - name: 安装 Hexo  
-      run: |  
-        npm install -g hexo-cli  
-  
-    - name: 缓存 node 模块  
-      id: cache-node-modules  
-      uses: actions/cache@v3  
-      with:  
-        path: node_modules  
-        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  
-        restore-keys: |  
-          ${{ runner.os }}-node-modules-  
-  
-    - name: 安装依赖  
-      if: steps.cache-node-modules.outputs.cache-hit != 'true'  
-      run: |  
-        npm install --save  
-  
-    - name: 生成静态  
-      run: |  
+name: 自动构建
 
-        hexo generate  
-  
-    - name: 部署推送到目标仓库  
-      uses: peaceiris/actions-gh-pages@v3  
-      with:  
-        personal_token: ${{ secrets.PAT }}  
-        publish_dir: ./public  
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+    - name: 检查源仓库分支
+      uses: actions/checkout@v3
+      with:
+        ref: main
+        fetch-depth: 0
+
+    - name: 恢复文件修改时间
+      run: |
+        find source -name '*.md' | while read file; do
+          touch -d "$(git log -1 --format="@%ct" "$file")" "$file"
+        done
+
+    - name: 安装 Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: "20.x"
+
+    - name: 安装 Hexo
+      run: |
+        npm install -g hexo-cli
+
+    - name: 缓存 node 模块
+      id: cache-node-modules
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
+
+    - name: 安装依赖
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      run: |
+        npm install --save
+
+    - name: 生成静态
+      run: |
+        hexo generate
+
+    - name: 部署推送到目标仓库
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.PAT }}
+        publish_dir: ./public
         external_repository: lxb-blog/lxb-blog.github.io 
-        user_name: "github-actions[bot]"  
-        user_email: "github-actions[bot]@users.noreply.github.com"  
-        full_commit_message: "通过 Github Actions 部署 Hexo 构建"  
-        publish_branch: main
+        user_name: "github-actions[bot]"
+        user_email: "github-actions[bot]@users.noreply.github.com"
+        full_commit_message: "通过 Github Actions 部署 Hexo 构建"
+        publish_branch: main  
+  
