@@ -26,7 +26,7 @@ top:
 
 ## 效果展示
 
-{% label 不想截图了，自己看本站侧边栏 %}
+
 
 {% link GitHub地址,动态展示steam卡片,https://github.com/yuyinws/steam-card %}
 
